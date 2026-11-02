@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Landing Page Workflow: live demo</title>
+<meta name="description" content="A landing page produced end to end by a Claude Code workflow: reference, copy, build, automated QA and a WordPress plugin.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#f6f7f4; --ink:#1d2b2a; --muted:#5a6766; --accent:#2f6f5e; --card:#ffffff; --soft:#e7efe9; --warn:#f6efd6; --bad:#f8e4dc; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:400 17px/1.6 "Inter Tight", system-ui, sans-serif; }
+  a { color:var(--accent); text-underline-offset:.2em; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 max(20px, env(safe-area-inset-left)); }
+  header { padding:72px 0 40px; }
+  h1 { font-size:clamp(2rem, 1.4rem + 2.6vw, 3.4rem); line-height:1.05; letter-spacing:-.03em; margin:0 0 18px; font-weight:600; }
+  h2 { font-size:1.5rem; letter-spacing:-.02em; margin:0 0 16px; font-weight:600; }
+  .lead { font-size:1.2rem; color:var(--muted); max-width:44rem; margin:0; }
+  .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+  .btn { display:inline-flex; align-items:center; min-height:46px; padding:0 20px; border-radius:999px; background:var(--ink); color:#fff; text-decoration:none; font-weight:500; }
+  .btn.ghost { background:transparent; color:var(--ink); box-shadow:inset 0 0 0 1.5px var(--ink); }
+  section { padding:48px 0; }
+  .grid { display:grid; gap:20px; grid-template-columns:repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .card { background:var(--card); border-radius:20px; padding:24px; }
+  .card h3 { margin:0 0 6px; font-size:1.1rem; }
+  .card p { margin:0 0 14px; color:var(--muted); }
+  .frame { border-radius:14px; overflow:hidden; background:#fff; aspect-ratio:16/10; }
+  .frame iframe { width:200%; height:200%; border:0; transform:scale(.5); transform-origin:0 0; pointer-events:none; }
+  .stats { display:grid; gap:12px; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); margin-bottom:24px; }
+  .stat { background:var(--soft); border-radius:16px; padding:18px 20px; }
+  .stat b { display:block; font-size:1.8rem; letter-spacing:-.02em; }
+  .stat span { color:var(--muted); font-size:.95rem; }
+  .table { background:var(--card); border-radius:20px; padding:8px 20px; overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:.95rem; min-width:560px; }
+  td, th { text-align:left; padding:10px 12px 10px 0; vertical-align:top; }
+  tr + tr td { border-top:1px solid #e9ece8; }
+  th { color:var(--muted); font-weight:500; }
+  .pill { display:inline-block; border-radius:999px; padding:2px 10px; font-size:.82rem; font-weight:600; }
+  .pass { background:var(--soft); color:#24563a; } .skipped { background:var(--warn); color:#6b5300; } .fail { background:var(--bad); color:#8d2f1c; }
+  ol.flow { margin:0; padding-left:1.2em; display:grid; gap:8px; }
+  ul.notes { margin:0; padding-left:1.2em; color:var(--muted); }
+  .vid { width:100%; max-width:100%; border-radius:16px; background:#fff; display:block; }
+  footer { padding:56px 0 72px; color:var(--muted); font-size:.95rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>One reference page in, a QA-checked landing page out</h1>
+    <p class="lead">A live run of the Claude Code landing page workflow: four subagents turned a reference layout, a brand guide and a short brief into the page below, then an automated QA gate checked it and packaged it for WordPress. The brand is fictional.</p>
+    <div class="actions">
+      <a class="btn" href="generated/">Open the generated page</a>
+      <a class="btn ghost" href="#vid-h">Watch the 1-minute video</a>
+      <a class="btn ghost" href="reference/">See the reference it started from</a>
+      
+    </div>
+  </header>
+
+  <section aria-labelledby="vid-h">
+    <h2 id="vid-h">One-minute walkthrough</h2>
+    <video class="vid" controls muted playsinline preload="metadata" poster="cover.png" src="demo-video.mp4">Your browser can't play this video.</video>
+  </section>
+
+  <section aria-labelledby="io-h">
+    <h2 id="io-h">Before and after</h2>
+    <div class="grid">
+      <div class="card"><h3>Reference</h3><p>A fictional scheduling-app page. The workflow takes its structure and layout only.</p>
+        <div class="frame"><iframe src="reference/" title="Reference page preview" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+        <p style="margin:14px 0 0"><a href="reference/">Open full page</a></p></div>
+      <div class="card"><h3>Generated</h3><p>Brightwell Bookkeeping, a fictional brand. Every word came from the brief and brand rules.</p>
+        <div class="frame"><iframe src="generated/" title="Generated page preview" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+        <p style="margin:14px 0 0"><a href="generated/">Open full page</a></p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="qa-h">
+    <h2 id="qa-h">Automated QA report</h2>
+    <div class="stats">
+      <div class="stat"><b>22</b><span>checks passed</span></div>
+      <div class="stat"><b>0</b><span>failed</span></div>
+      <div class="stat"><b>1</b><span>skipped</span></div>
+      <div class="stat"><b>2</b><span>QA rounds</span></div>
+    </div>
+    <div class="table"><table>
+      <thead><tr><th>Check</th><th>Group</th><th>Result</th><th>Detail</th></tr></thead>
+      <tbody><tr><td>schema_valid</td><td>content</td><td><span class="pill pass">pass</span></td><td>content.json and every section match their schemas</td></tr><tr><td>headline_length</td><td>content</td><td><span class="pill pass">pass</span></td><td>all headings ≤ 60 characters</td></tr><tr><td>subheadline_length</td><td>content</td><td><span class="pill pass">pass</span></td><td>sub-headlines ≤ 160 characters</td></tr><tr><td>text_word_limit</td><td>content</td><td><span class="pill pass">pass</span></td><td>every text block ≤ 90 words</td></tr><tr><td>banned_phrases</td><td>content</td><td><span class="pill pass">pass</span></td><td>no banned phrases in content.json</td></tr><tr><td>cta_labels</td><td>content</td><td><span class="pill pass">pass</span></td><td>CTAs use approved labels (Book a free call, Get your free review)</td></tr><tr><td>no_todos</td><td>content</td><td><span class="pill pass">pass</span></td><td>no TODO markers</td></tr><tr><td>single_h1</td><td>markup</td><td><span class="pill pass">pass</span></td><td>found 1 h1 elements</td></tr><tr><td>heading_order</td><td>markup</td><td><span class="pill pass">pass</span></td><td>headings never skip a level</td></tr><tr><td>img_alt</td><td>markup</td><td><span class="pill pass">pass</span></td><td>0 images, all with alt</td></tr><tr><td>links</td><td>markup</td><td><span class="pill pass">pass</span></td><td>every link has a target and a name</td></tr><tr><td>primary_cta</td><td>markup</td><td><span class="pill pass">pass</span></td><td>2 primary CTAs, one in the hero (need the hero and a closing one)</td></tr><tr><td>document_head</td><td>markup</td><td><span class="pill pass">pass</span></td><td>lang, title and meta description present</td></tr><tr><td>built_from_content</td><td>markup</td><td><span class="pill pass">pass</span></td><td>h1 matches the hero headline in content.json</td></tr><tr><td>required_text</td><td>markup</td><td><span class="pill pass">pass</span></td><td>all required text is on the page</td></tr><tr><td>banned_phrases_page</td><td>markup</td><td><span class="pill pass">pass</span></td><td>no banned phrases on the rendered page</td></tr><tr><td>scope_wrapper</td><td>markup</td><td><span class="pill pass">pass</span></td><td>content is inside &lt;main class=&quot;lp-page&quot;&gt;</td></tr><tr><td>css_scoped</td><td>markup</td><td><span class="pill pass">pass</span></td><td>every CSS rule is scoped under .lp-page</td></tr><tr><td>viewport_meta</td><td>responsive</td><td><span class="pill pass">pass</span></td><td>viewport meta with width=device-width</td></tr><tr><td>no_wide_fixed_widths</td><td>responsive</td><td><span class="pill pass">pass</span></td><td>no fixed width wider than 390px</td></tr><tr><td>images_fluid</td><td>responsive</td><td><span class="pill pass">pass</span></td><td>img has max-width: 100%</td></tr><tr><td>breakpoints</td><td>responsive</td><td><span class="pill pass">pass</span></td><td>has width breakpoints</td></tr><tr><td>rendered_widths</td><td>browser</td><td><span class="pill skipped">skipped</span></td><td>Playwright not installed; screenshots and overflow check skipped</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <section aria-labelledby="how-h">
+    <h2 id="how-h">How this page was made</h2>
+    <div class="grid">
+      <div class="card"><h3>The run</h3>
+        <ol class="flow">
+          <li><b>reference-analyst</b> wrote <code>design-spec.json</code> from the reference.</li>
+          <li><b>copywriter</b> wrote <code>content.json</code> from the brief and brand rules, in parallel.</li>
+          <li><b>page-builder</b> built the HTML and CSS.</li>
+          <li><b>qa-reviewer</b> ran <code>scripts/qa.py</code> and sent fixes back (<code>qa-report.json</code>).</li>
+          <li><code>build_wordpress.py</code> packaged the <code>WordPress plugin</code>; <code>run.json</code> logs it all.</li>
+        </ol></div>
+      <div class="card"><h3>Notes from the run log</h3><ul class="notes"><li>Round 1: all 22 automated checks passed; visual review found the header wrapping onto two lines at 390px.</li><li>Round 2: page-builder fix (nowrap wordmark, smaller size on phones); all checks pass.</li><li>FAQ &#x27;How do we send you documents?&#x27; uses a neutral answer because the brief gives no method; confirm with the client.</li></ul></div>
+    </div>
+  </section>
+
+  <footer>
+        Buttons on the generated page point to example.com because the brand is fictional.
+    Source code is in a private repository, available on request.
+  </footer>
+</div>
+</body>
+</html>
